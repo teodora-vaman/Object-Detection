@@ -64,14 +64,18 @@ def verifyIntersect(img, bboxes):
 
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 
-cap = cv2.VideoCapture("E:\Lucru\ANUL II MASTER\SCCV\Proiect\Object-Detection\Road.mp4")
+cap = cv2.VideoCapture("E:\Lucru\ANUL II MASTER\SCCV\Proiect\Object-Detection\bike.mp4")
 
 if (cap.isOpened()== False):
     print("Error opening video file")
- 
-size = (360, 640, 3)
+
+# ret, frame = cap.read()
+# w,h,c = frame.shape
+
+w,h = 500,500
+# size = (360, 640, 3)
 # save the video
-out = cv2.VideoWriter('obstacleDetection.avi',cv2.VideoWriter_fourcc(*'DIVX'), 15, (640,360))
+out = cv2.VideoWriter('bike_obstacleDetection.avi',cv2.VideoWriter_fourcc(*'DIVX'), 15, (h,w))
 i = 0
 detected_frames = []
 while(cap.isOpened()):
